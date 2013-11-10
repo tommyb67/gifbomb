@@ -1,0 +1,55 @@
+h1.def{
+  float:left; 
+  font-family: 'Share Tech Mono', sans-serif;
+  font-size:100px; 
+  color:black;
+}
+img.bomb{
+  float:left;
+  clear:right;
+}
+div.sect_one{
+  width: 50%; 
+  height: 50%; 
+  background-color:rgba(255,255,255,1);
+  margin: 15% auto;
+}
+div.sect_two{
+  width:90%; 
+  height: 100%; 
+  margin-top: 14%;
+  margin-bottom: 14%;
+  margin-left: 3%;
+  margin-right:5%;
+}
+div.sect_three{
+  width:60%; 
+  height: 100%; 
+  margin:14% auto;
+}
+span.defined{
+  float:left;
+  font-family: 'Share Tech Mono', sans-serif;
+  font-size:30px; 
+  color:black;
+}
+section{
+  padding-left: 5%;
+  padding-right: 5%;
+  margin: 0 auto;
+}
+.gifs{
+  float:left;
+  margin-left:10px;
+  border-radius: 50%;
+  border:5px solid white;
+  width:250px;
+  height:250px;
+}
+.gifSingle{
+  margin:10px;
+  border-radius: 20%;
+  border:5px solid white;
+  width:270px;
+  height:270px;
+}
