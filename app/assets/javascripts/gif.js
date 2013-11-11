@@ -2,7 +2,7 @@
 
 function giphyTest(callback){
   
-$.getJSON("http://api.giphy.com/v1/gifs/search?q=twerk&api_key=dc6zaTOxFJmzC&limit=100", function(data){callback(data); });
+$.getJSON("http://api.giphy.com/v1/gifs/search?q=kittens&api_key=dc6zaTOxFJmzC&limit=100", function(data){callback(data); });
 
 };
 
@@ -18,6 +18,7 @@ function header(){
   imgLogo.attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif");
   span.html("a bitmap image format that was introduced by CompuServe in 1987. a neverending loop of awesome.");
   divHead.append(heading).append(imgLogo).append(span).appendTo($("section#1"));
+  var search = $("<form>").append($("<input>").attr("class", "search"));
 }
 function displayGifs(gifHash){
   // console.log($(test).length, $(test)[0]['data'][0], $(test)[0]['data'][1]['images']['original']['url']);
