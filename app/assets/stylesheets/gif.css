@@ -17,7 +17,7 @@ div.sect_one{
 div.sect_two{
   width:90%; 
   height: 100%; 
-  margin-top: 14%;
+  margin-top: 1%;
   margin-bottom: 14%;
   margin-left: 3%;
   margin-right:5%;
@@ -39,17 +39,20 @@ section{
   margin: 0 auto;
 }
 .gifs{
+  clear:right;
   float:left;
   margin-left:10px;
-  border-radius: 50%;
-  border:5px solid white;
+  margin-top: 10px;
+  border-radius: 20%;
+  border:1px solid white;
   width:225px;
   height:225px;
+  box-shadow: 2px 2px 1px #888888;
 }
 .gifSingle{
   margin:10px;
   border-radius: 20%;
-  border:5px solid white;
+  border:1px dashed white;
   width:270px;
   height:270px;
 }

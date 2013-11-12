@@ -24,7 +24,7 @@ function newUserForm(){
       url: "/users",
       type: "POST",
       //data: "user[username]=a&user[email]=a%40b.c&user[password]=a&user[password_confirmation]=a",
-      data: $(this).serializeParams(),
+      data: $(this).serializeParams("user"),
       success: function(){$("div.sect_three").empty(); logOut();},
       context:this
     });
