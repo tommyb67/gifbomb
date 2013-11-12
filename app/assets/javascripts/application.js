@@ -17,3 +17,4 @@
 //= require_tree .
 //= require onepage-scroll.js
 //= require underscore.js 
+//= require jquery-photofy-2.0.43.js 
