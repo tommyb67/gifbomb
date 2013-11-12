@@ -1,8 +1,11 @@
 <% @users.each do |user| %>
- <ul>
+    <ul id="<%= user.id %>">
     <li><%= user.username %></li>
     <li><%= user.email %></li>
     <li><%= user.admin %></li>
+    <button name="delete" type="submit">Delete</button>
+    <button name="admin-toggle" type="submit">Change Admin Status</button>
   </ul>
 <% end %>
+
 
