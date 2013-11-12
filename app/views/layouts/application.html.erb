@@ -10,7 +10,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= yield %>
 
+<%= yield %>
+<%if logged_in?%>
+    <script>logOut();</script>
+  <%else%>
+  <script>newAndLogIn();</script> 
+  <%end%>
 </body>
 </html>
