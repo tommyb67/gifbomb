@@ -1,6 +1,12 @@
 $(function(){
+  
+});
+
+function newAndLogIn(){
   newUserForm();
-})
+  logIn();
+};
+
 function newUserForm(){
   var form = $("<form>");
   var username = $("<input>").attr("type", "text").attr("name","username").attr("placeholder", "Username");
@@ -17,11 +23,57 @@ function newUserForm(){
     $.ajax({
       url: "/users",
       type: "POST",
-      data: "user[" + $(this).serialize()
       //data: "user[username]=a&user[email]=a%40b.c&user[password]=a&user[password_confirmation]=a",
-      data: $(this).serializeParams("user"),
-      context:this,
-      success: alert("success!")
+      data: $(this).serializeParams(),
+      success: function(){$("div.sect_three").empty(); logOut();},
+      context:this
     });
   });
 }
+
+function logIn(){
+  var logInForm = $("<form>");
+  var emailLogin = $("<input>").attr("type","text").attr("name","email").attr("placeholder","Email");
+  var passWord = $("<input>").attr("type","password").attr("name","password").attr("placeholder","Password");
+  var logInButton = $("<button>").html("Wilkommen");
+
+  logInForm.append(emailLogin).append(passWord).append(logInButton);
+  logInForm.appendTo($("div.sect_three"));
+
+  logInForm.on("submit", function(event){
+    event.preventDefault();
+    $("div.sect_three").empty();
+    $.ajax({
+      url: "/session",
+      type: "POST",
+      data: $(this).serializeParams("user"),
+      success: function(){
+        $("div.sect_three").empty(); 
+        logOut();
+        },
+      error: function(){
+        alert("There was a problem logging you in"); 
+        newAndLogIn();
+        },
+      context:this
+    });
+    
+  });
+
+  
+
+};
+function logOut(){
+  var logout = $("<button>").html("LOGOUT").appendTo($("div.sect_three"));
+  logout.on("click", function(){
+    $.ajax({
+      url: "/session",
+      type: "POST",
+      dataType: "json",
+      data: {"_method": "delete"},
+      context: this
+    });
+    $("div.sect_three").empty(); 
+    newAndLogIn();  
+  });
+};
