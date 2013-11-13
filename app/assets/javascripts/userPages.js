@@ -1,7 +1,6 @@
 $(function(){
-  
-});
 
+});
 function newAndLogIn(){
   newUserForm();
   logIn();
@@ -25,13 +24,18 @@ function newUserForm(){
       type: "POST",
       //data: "user[username]=a&user[email]=a%40b.c&user[password]=a&user[password_confirmation]=a",
       data: $(this).serializeParams("user"),
-      success: function(){$("div.sect_three").empty(); logOut();},
+      success: function(user){
+        var id = user.id;
+        appendAvatar(id);
+        $("div.sect_three").empty(); logOut();},
       context:this
     });
   });
 }
 
-function logIn(){
+
+
+function logIn() {
   var logInForm = $("<form>");
   var emailLogin = $("<input>").attr("type","text").attr("name","email").attr("placeholder","Email");
   var passWord = $("<input>").attr("type","password").attr("name","password").attr("placeholder","Password");
@@ -47,20 +51,20 @@ function logIn(){
       url: "/session",
       type: "POST",
       data: $(this).serializeParams("user"),
-      success: function(){
-        $("div.sect_three").empty(); 
+      success: function(userObject){
+        console.log(userObject);
+        $("div.sect_three").empty();
         logOut();
+        appendAvatar(userObject);
         },
       error: function(){
-        alert("There was a problem logging you in"); 
+        alert("There was a problem logging you in");
         newAndLogIn();
         },
       context:this
     });
-    
-  });
 
-  
+  });
 
 };
 function logOut(){
@@ -73,7 +77,24 @@ function logOut(){
       data: {"_method": "delete"},
       context: this
     });
-    $("div.sect_three").empty(); 
-    newAndLogIn();  
+    $("div.sect_three").empty();
+    newAndLogIn();
   });
 };
+
+
+
+
+function appendAvatar(user) {
+  console.log(user);
+  $.ajax({
+    url: "/users/" + user,
+    type: "GET",
+    dataType: "json",
+    success: function(user){
+      var img = $("<img src=" + user.avatar  +">");   
+      $("div.sect_three").append(img);
+    },
+    context: this
+  })
+}

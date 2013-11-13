@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
 
-  before_action :authenticated!, :set_user, :authorized!, except: [:new, :create]
-
+  before_action :set_user, :authorized!, except: [:new, :create]
+  # before_action :authenticated!
+  #FIXME authenticated is an unknown method
   def index
     @user = User.all
   end
+
   def create
     @user = User.new(user_params)
 
@@ -16,6 +18,7 @@ class UsersController < ApplicationController
     end
 
   end
+
   def update
     @user = User.find(params[:id])
 
@@ -26,6 +29,12 @@ class UsersController < ApplicationController
     end
 
   end
+
+  def show
+    @user = User.find(params[:id])
+    render json: @user
+  end
+
   def destroy
     @user = User.find(params[:id])
 
@@ -49,6 +58,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
   def authorized!
     unless @user.id == session[:user_id]
     end

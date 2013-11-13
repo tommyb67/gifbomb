@@ -6,6 +6,7 @@ module SessionsHelper
 
   def authenticated!
     unless logged_in?
+      
     end
   end
 
