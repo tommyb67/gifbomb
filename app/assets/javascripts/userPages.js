@@ -1,5 +1,5 @@
 $(function(){
-  
+
 });
 
 function newAndLogIn(){
@@ -11,11 +11,12 @@ function newUserForm(){
   var form = $("<form>");
   var username = $("<input>").attr("type", "text").attr("name","username").attr("placeholder", "Username");
   var email = $("<input>").attr("type","text").attr("name","email").attr("placeholder","Email");
+  var avatar = $("<input>").attr("type","text").attr("name","avatar").attr("placeholder","Avatar URL");
   var password = $("<input>").attr("type","password").attr("name","password").attr("placeholder","Password");
   var password_confirmation = $("<input>").attr("type","password").attr("name", "password_confirmation").attr("placeholder","Confirm");
   var button = $("<button>").html("Bueno!");
 
-  form.append(username).append(email).append(password).append(password_confirmation).append(button).appendTo($("div.sect_three"));
+  form.append(username).append(email).append(avatar).append(password).append(password_confirmation).append(button).appendTo($("div.sect_three"));
 
   form.on("submit", function(event){
     event.preventDefault();
@@ -48,19 +49,19 @@ function logIn(){
       type: "POST",
       data: $(this).serializeParams("user"),
       success: function(){
-        $("div.sect_three").empty(); 
+        $("div.sect_three").empty();
         logOut();
         },
       error: function(){
-        alert("There was a problem logging you in"); 
+        alert("There was a problem logging you in");
         newAndLogIn();
         },
       context:this
     });
-    
+
   });
 
-  
+
 
 };
 function logOut(){
@@ -73,7 +74,7 @@ function logOut(){
       data: {"_method": "delete"},
       context: this
     });
-    $("div.sect_three").empty(); 
-    newAndLogIn();  
+    $("div.sect_three").empty();
+    newAndLogIn();
   });
 };
