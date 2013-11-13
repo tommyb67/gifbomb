@@ -7,70 +7,45 @@ $.getJSON("http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dc6z
 
 };
 
-// function imgurTest(callback){
-//   $.getJSON("https://api.imgur.com/3/", function(data){callback(data); });
-// }
-function splash(){
-  var divHead = $("<div>").addClass("sect_one");
-  var heading = $("<h1>").addClass("def");
-  var imgLogo = $("<img>").addClass("bomb");
-  var span = $("<span>").addClass("defined");
-  heading.html("gif");
-  imgLogo.attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif");
-  span.html("a bitmap image format that was introduced by CompuServe in 1987. a neverending loop of awesome.");
-  divHead.append(heading).append(imgLogo).append(span).appendTo($("section#1"));
-  
-}
-function moar(){
-  var showMore = $("<button>").css("float","right").attr("id", "more").text("moar");
-  showMore.appendTo($("div.sect_two"));
-  showMore.on("click", function(e){
-    e.preventDefault();
-    $("div.sect_two").empty();
-    // showMore.appendTo($("div.sect_two"));
-    searchForm();
-    
-    giphyTest(searchWord, displayGifs);
-    this.remove();
-  });
-}
 function displayGifs(gifHash){
   // console.log($(test).length, $(test)[0]['data'][0], $(test)[0]['data'][1]['images']['original']['url']);
 
   // takes a sample of 100 gifs
-  var sampler = _.sample($(gifHash)[0]['data'], 10);
-
+  var sampler = _.sample($(gifHash)[0]['data'], 12);
+  
   // displays random gifs
   for(var i = 0; i < sampler.length; i++){
-    var divy = $("<div>").attr("id", i);
+  
+    var divy = $("<div>").attr("id", i).addClass("givs");
+    var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href",sampler[i]['images']['original']['url']);
     var l = $("<img>").addClass("gifs").attr("src",sampler[i]['images']['fixed_height']['url']);
     l.appendTo(divy);
-    divy.on("click", function(){
-      var singleGif = $("div.sect_three");
-      $(this).children().toggleClass("gifSingle");
-      $(this).appendTo(singleGif);
-      $(".main").moveDown();
-    })
-    divy.appendTo($("div.sect_two"));
-
-    
-  }
-  
+    lightedLinks.append($(divy));
+    lightedLinks.appendTo($("div.sect_one"));
+    }
 };
 
+function header(){
+  var header = $("<div>").addClass("header");
+  var title = $("<h2>").css("clear","both").css("float","left").css("font-family","Share Tech Mono").html("gif").appendTo(header);
+  var logo = $("<img>").attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif").appendTo(header);
+ header.prependTo($("section#1"));
+}
+
 function searchForm() {
+  var header = $("div.header")
   var searchBox = $("<form>").addClass("search");
-  var keyword  = $("<input>").attr("type", "text").attr("name","keyword");
-  var title = $("<h2>").css("clear","both").css("float","left").css("font-family","Share Tech Mono").html("gif").appendTo($("div.sect_two"));
-  var logo = $("<img>").attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif").appendTo($("div.sect_two"));;
-  searchBox.css("float", "right").append(keyword).appendTo($("div.sect_two"));
+  var keyword  = $("<input>").addClass("keyword").attr("type", "text").attr("name","keyword").attr("placeholder","Search");
+  searchBox.css("text-align", "center").append(keyword).prependTo($("div.sect_one"));
+ 
   
   keyword.on("keypress",function(e){
     var code = e.keyCode || e.which;
     if(code == 13) {
       searchBox.on("submit", function(event) {
         event.preventDefault();
-        $("div.sect_two").empty();
+        $(this).remove();
+        $("div.sect_one").empty();
         searchForm();
         giphyTest(keyword.val(), displayGifs);
       });
@@ -95,10 +70,10 @@ $(function(){
    loop: true, // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
    responsiveFallback: 600 // You can fallback to normal page scroll by defining the width of the browser in which you want the responsive fallback to be triggered. For example, set this to 600 and whenever the browser's width is less than 600, the fallback will kick in.
   });
-  splash();
-  searchForm();
-  moar();
+  header();
   giphyTest("kittens", displayGifs);
+  searchForm();
+  
   
 
 });
