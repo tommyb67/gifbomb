@@ -1,3 +1,12 @@
+body{
+  background-color: #fefefe;
+}
+div.header{
+  background-color: white;
+  width:100%;
+  height:180px;
+  padding:10px;
+}
 h1.def{
   float:left; 
   font-family: 'Share Tech Mono', sans-serif;
@@ -7,19 +16,15 @@ h1.def{
 img.bomb{
   float:left;
   clear:right;
+  width:225px;
+  height: 175px;
 }
 div.sect_one{
-  width: 50%; 
-  height: 50%; 
-  background-color:rgba(255,255,255,1);
-  margin: 15% auto;
-}
-div.sect_two{
-  width:90%; 
+  width:100%; 
   height: 100%; 
   margin-top: 1%;
   margin-bottom: 14%;
-  margin-left: 3%;
+  margin-left: 5%;
   margin-right:5%;
 }
 div.sect_three{
@@ -45,8 +50,8 @@ section{
   margin-top: 10px;
   border-radius: 20%;
   border:1px solid white;
-  width:225px;
-  height:225px;
+  width:200px;
+  height:200px;
   box-shadow: 2px 2px 1px #888888;
 }
 .gifSingle{
@@ -55,4 +60,28 @@ section{
   border:1px dashed white;
   width:270px;
   height:270px;
+}
+form.search{
+}
+.keyword{
+  font-size:25px;
+  font-family:helvetica;
+  height: 30px;
+  width: 500px;
+  margin-right:165px;
+  text-align:center;
+  border:none;
+}
+.keyword:hover{
+  -moz-box-shadow: 0 0 10px #9ecaed;
+  -webkit-box-shadow: 0 0 10px #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+.keyword:focus{
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+.givs{
+
 }
