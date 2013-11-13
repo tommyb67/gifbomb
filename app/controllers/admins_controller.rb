@@ -31,17 +31,17 @@ class AdminsController < ApplicationController
 
         # end
 
-        # def promote
-        #         @user.admin = true
-        #         @user.save
-        #         redirect_to new_admin_path
-        # end
+        def promote
+            @user.admin = true
+            @user.save
+            redirect_to admins_path
+        end
 
-        # def demote
-        #         @user.admin = false
-        #         @user.save
-        #         redirect_to new_admin_path
-        # end
+        def demote
+            @user.admin = false
+            @user.save
+            redirect_to admins_path
+        end
 
     private
 
@@ -49,7 +49,7 @@ class AdminsController < ApplicationController
         @user = User.find(session[:user_id])
     end
 
-    # def set_user
-    #     @user = User.find(params[:id])
-    # end
+    def set_user
+        @user = User.find(params[:id])
+    end
 end
