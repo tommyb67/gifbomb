@@ -3,6 +3,10 @@
     <li><%= user.username %></li>
     <li><%= user.email %></li>
     <li><%= user.admin %></li>
+    <%= button_to 'Destroy?', {:url => users_path,
+                        :id => user.id,
+                        :confirm => "are you sure?",
+                        :method => :delete} %>
   </ul>
 <% end %>
 

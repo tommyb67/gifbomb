@@ -15,6 +15,9 @@ class AdminsController < ApplicationController
 
         end
 
+        def destroy
+        end
+
         # def show
         #         @users = User.find(session[:user_id])
 
