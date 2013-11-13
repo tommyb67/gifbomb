@@ -1,16 +1,23 @@
 Gifbomb::Application.routes.draw do
-  resources :gifs
+  
+  root "gifs#index"
+  resources :gifs do
+    member do
+      post "favorite"
+      delete "unfavorite"
+    end
+  end
+  
   resources :users
+  
   resource :session, only: [:new, :create, :destroy]
 
   resources :admins do
     member do
       post "promote"
-    end
-    member do
       post "demote"
     end
   end
 
-  root "gifs#index"
+  
 end

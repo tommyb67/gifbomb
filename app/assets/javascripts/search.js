@@ -22,13 +22,15 @@ function displayGifs(gifHash){
     l.appendTo(divy);
     lightedLinks.append($(divy));
     lightedLinks.appendTo($("div.sect_one"));
+    // divy.on("click", function(){$("span.lb-number").empty().append($("<button>").text("Favorite!"));});
+   
     }
 };
 
 function header(){
   var header = $("<div>").addClass("header");
   var title = $("<h2>").css("clear","both").css("float","left").css("font-family","Share Tech Mono").html("gif").appendTo(header);
-  var logo = $("<img>").attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif").appendTo(header);
+  var logo = $("<img>").addClass("bomb").attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif").appendTo(header);
  header.prependTo($("section#1"));
 }
 
@@ -73,8 +75,6 @@ $(function(){
   header();
   giphyTest("kittens", displayGifs);
   searchForm();
-  
-  
 
 });
 
