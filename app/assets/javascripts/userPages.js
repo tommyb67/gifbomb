@@ -1,7 +1,6 @@
 $(function(){
 
 });
-
 function newAndLogIn(){
   newUserForm();
   logIn();
@@ -26,7 +25,10 @@ function newUserForm(){
       type: "POST",
       //data: "user[username]=a&user[email]=a%40b.c&user[password]=a&user[password_confirmation]=a",
       data: $(this).serializeParams("user"),
-      success: function(){$("div.sect_three").empty(); logOut();},
+      success: function(user){
+        var id = user.id;
+        appendAvatar(id);
+        $("div.sect_three").empty(); logOut();},
       context:this
     });
   });
@@ -50,10 +52,11 @@ function logIn() {
       url: "/session",
       type: "POST",
       data: $(this).serializeParams("user"),
-      success: function(){
+      success: function(userObject){
+        console.log(userObject);
         $("div.sect_three").empty();
         logOut();
-        appendAvatar(this);
+        appendAvatar(userObject);
         },
       error: function(){
         alert("There was a problem logging you in");
@@ -81,11 +84,18 @@ function logOut(){
 };
 
 
+
+
 function appendAvatar(user) {
   console.log(user);
-  console.log(user.avatar);
-  var img = $("<img src=" + user.avatar  +">");    
-
-  $("div.sect_three").append(img);
-
+  $.ajax({
+    url: "/users/" + user,
+    type: "GET",
+    dataType: "json",
+    success: function(user){
+      var img = $("<img src=" + user.avatar  +">");   
+      $("div.sect_three").append(img);
+    },
+    context: this
+  })
 }

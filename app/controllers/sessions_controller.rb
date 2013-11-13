@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      render status: 200, nothing: true
+      render json: session[:user_id], status: 200, nothing: true
     else
       render status: 400, nothing: true
     end
