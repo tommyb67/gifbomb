@@ -32,40 +32,13 @@ function newUserForm(){
   });
 }
 
-function logIn(){
+
+
+function logIn() {
   var logInForm = $("<form>");
   var emailLogin = $("<input>").attr("type","text").attr("name","email").attr("placeholder","Email");
   var passWord = $("<input>").attr("type","password").attr("name","password").attr("placeholder","Password");
-  var$(function(){
-  bindCheckBoxes($("li input[type='checkbox']"));
-  bindDeleteButtons($("li span"));
-  bindForm();
-});
-
-function bindCheckBoxes(boxes) {
-  boxes.on('change', function() {
-    var todo = $(this).parent();
-    var done = $(this).is(':checked');
-
-    done ? todo.addClass("done") : todo.removeClass("done");
-
-    updateTodo(todo, done);
-  });
-}
-
-function bindDeleteButtons(buttons) {
-  buttons.on("click", function(e) {
-    var todo = $(this).parent();
-
-    deleteTodo(todo);
-  });
-}
-
-function bindForm() {
-  $("form").on("submit", function(e) {
-    e.preventDefault();
-
- logInButton = $("<button>").html("Wilkommen");
+  var logInButton = $("<button>").html("Wilkommen");
 
   logInForm.append(emailLogin).append(passWord).append(logInButton);
   logInForm.appendTo($("div.sect_three"));
@@ -80,6 +53,7 @@ function bindForm() {
       success: function(){
         $("div.sect_three").empty();
         logOut();
+        appendAvatar(this);
         },
       error: function(){
         alert("There was a problem logging you in");
@@ -89,8 +63,6 @@ function bindForm() {
     });
 
   });
-
-
 
 };
 function logOut(){
@@ -107,3 +79,13 @@ function logOut(){
     newAndLogIn();
   });
 };
+
+
+function appendAvatar(user) {
+  console.log(user);
+  console.log(user.avatar);
+  var img = $("<img src=" + user.avatar  +">");    
+
+  $("div.sect_three").append(img);
+
+}
