@@ -1,5 +1,5 @@
 <% @users.each do |user| %>
- <ul>
+    <ul id="<%= user.id %>">
     <li><%= user.username %></li>
     <li><%= user.email %></li>
     <li><%= user.admin %></li>
@@ -17,6 +17,11 @@
     <%= button_to "delete", {:controller => :admins,
       :action => 'destroy', :id => user.id }, :method => :delete %>
 
+
   </ul>
 <% end %>
+
+
+
+
 
