@@ -130,10 +130,8 @@ ul, ol {
 
 /* line 55, ../sass/screen.sass */
 li {
-  padding-bottom: 0.8em;
-  margin-bottom: 0.8em;
-  border-bottom: 2px solid #515151;
-  line-height: 1.3em;
+  margin-bottom: 0.5em;
+  line-height: 1em;
 }
 /* line 60, ../sass/screen.sass */
 li.last-list-item {

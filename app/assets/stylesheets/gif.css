@@ -3,9 +3,11 @@ body{
 }
 div.header{
   background-color: white;
-  width:100%;
+  width:90%;
   height:180px;
+  margin-left:20px;
   padding:10px;
+  border: 1px red solid;
 }
 h1.def{
   float:left; 
@@ -20,10 +22,9 @@ img.bomb{
   height: 175px;
 }
 div.sect_one{
-  width:100%; 
+  width:90%; 
   height: 100%; 
   margin-top: 1%;
-  margin-bottom: 14%;
   margin-left: 5%;
   margin-right:5%;
 }
