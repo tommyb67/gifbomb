@@ -12,10 +12,11 @@ class AdminsController < ApplicationController
             else
                 redirect_to gifs_path
             end
-
         end
 
         def destroy
+            User.destroy(params[:id])
+            redirect_to admins_path
         end
 
         # def show
