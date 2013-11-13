@@ -10,7 +10,7 @@ class AdminsController < ApplicationController
           if @user.admin == true
                 render :index
             else
-                redirect_to gifs_path
+                redirect_to root
             end
         end
 

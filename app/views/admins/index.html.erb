@@ -4,12 +4,14 @@
     <li><%= user.email %></li>
     <li><%= user.admin %></li>
 
-    <% if user.admin == "true" %>
+    <% if user.admin == false %>
       <%= button_to "Promote", {:controller => :admins,
-      :action => 'promote', :id => user.id }, :method => :promote %>
+      :action => 'promote', :id => user.id }, :method => :post %>
+
         <% else %>
       <%= button_to "Demote", {:controller => :admins,
-      :action => 'demote', :id => user.id }, :method => :demote %>
+      :action => 'demote', :id => user.id }, :method => :post %>
+
     <% end %>
 
     <%= button_to "delete", {:controller => :admins,
