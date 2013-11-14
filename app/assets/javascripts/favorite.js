@@ -25,10 +25,11 @@ function favorite(){
                               $(this).parent().attr("class","givs clicked");
                               favoritedGif = $(this).parent().parent();
                               $("div.sect_three").append(favoritedGif);
-                                
+
                             },
           context:this
           });
+
         },
         error: function(){alert("Sorry there was a problem");},
         context:this

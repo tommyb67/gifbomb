@@ -26,17 +26,6 @@ class AdminsController < ApplicationController
             redirect_to admins_path
         end
 
-        # def show
-        #         @users = User.find(session[:user_id])
-
-        #         if @user.admin == false
-        #                 redirect_to admins_path
-        #         end
-        # end
-
-        # def new
-
-        # end
 
         def promote
 

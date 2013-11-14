@@ -1,16 +1,16 @@
 
 div.adminMain ul{
-  max-width: 60%;
-  border-width: 20px;
+  max-width: 40%;
+  border-width: 10px;
   border-color: black;
   border-radius: 10px;
-  background-color: blue;
-  padding: 20px;
+  background-color: white;
+  padding: 10px;
 }
 
 div.adminButtons{
   max-width: 20%;
-  background-color: black;
+  border-radius: 5px
   padding: 5px;
 
 }
