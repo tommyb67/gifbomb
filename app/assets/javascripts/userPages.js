@@ -121,7 +121,7 @@ function viewFavorites(user){
   });
 
 }
-}
+
 
 function adminButton(){
   var adminForm = $("<form action='/admins'></form>");
