@@ -97,7 +97,10 @@ function appendAvatar(user){
     type: "GET",
     dataType: "json",
     success: function(user){
+      if( user.avatar !== ""){
       var img = $("<img src=" + user.avatar  +">");
+      }
+      else{ var img = $("<img src='http://community.bhf.org.uk/sites/default/files/profile_images/bhf_generic-avatar_01.png'>"); }
       img.attr('id', 'avatar-img');
       $("div.sect_three").prepend(img);
     },
