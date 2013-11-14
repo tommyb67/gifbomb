@@ -119,8 +119,6 @@ function viewFavorites(user){
         $("div.sect_three").append(img);
       };
       
-
-
     },
     context: this
   });
