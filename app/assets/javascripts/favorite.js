@@ -1,16 +1,12 @@
 
 function favorite(){
-  var pic = $("a#gallery");
   var favoriteButton = $("button.favorite");
-  if (pic.hasClass("clicked")){
-    favoriteButton.on("click", function(event){
-      event.preventDefault();
-      alert("You already favorited that!")
-    })
-  }else{
-  var favoriteButton = $("button.favorite");
-
+  
   favoriteButton.on("click", function(event){
+    if ($(this).parent().attr("class") === "givs clicked"){
+      event.preventDefault();
+    }
+  else if($(this).parent().attr("class") === "givs"){
     event.preventDefault();
       var url = $("img.lb-image").attr("src");
 
@@ -25,14 +21,14 @@ function favorite(){
           type: "POST",
           //data: "user[username]=a&user[email]=a%40b.c&user[password]=a&user[password_confirmation]=a",
           data: "user[gifs]="+url,
-          success: function(){alert("favorited");favoriteButton.remove();},
+          success: function(){$(this).parent().attr("class","givs clicked");},
           context:this
           });
         },
         error: function(){alert("Sorry there was a problem");},
         context:this
       });
-      pic.addClass("clicked");
-  });
+      
   }
+  });
 }
