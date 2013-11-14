@@ -68,12 +68,11 @@ section{
 .gifs{
   clear:right;
   float:left;
-  margin-left:10px;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin-top:5px;
+  margin-left: 15px;
   border-radius: 20%;
   border:1px solid white;
-  width:15%;
+  width:175px;
   height:175px;
   box-shadow: 1px 1px 2px lightcoral;
 }
@@ -99,7 +98,7 @@ form.search{
   width: 500px;
   margin-right:165px;
   text-align:center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 
   -moz-box-shadow: 0 0 5px lavenderblush;
   -webkit-box-shadow: 0 0 5px lavenderblush;
@@ -114,7 +113,30 @@ form.search{
   box-shadow: 0 0 2px darkgoldenrod;
 }
 .givs{
-
+  clear:right;
+  float:left;
+  margin:5px; 
+  border-radius: 20px;
+  border:2px solid darkgoldenrod;
+  width:16%;
+  height:215px;
+  background-color: rgba(0,0,0,.7);
+}
+.favorite{
+  z-index:200000;
+  width:75%;
+  margin-top: 5px;
+  margin-left: 30px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,.2);
+  color: lavenderblush;
+  font-family: 'Share Tech Mono', sans-serif;
+  font-weight: bold;
+  font-size: 15px; 
+}
+.clicked{
+  background-color: rgba(255,0,0,.7);
 }
 
 #avatar-img{

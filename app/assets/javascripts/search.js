@@ -14,21 +14,25 @@ function displayGifs(gifHash){
   var sampler = _.sample($(gifHash)[0]['data'], 36);
   
   // displays random gifs
-  for(var i = 0; i < 12; i++){
+  for(var i = 0; i < 10; i++){
   
     var divy = $("<div>").attr("id", i).addClass("givs");
     var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href",sampler[i]['images']['original']['url']);
     var l = $("<img>").addClass("gifs").attr("src",sampler[i]['images']['fixed_height']['url']);
+    var toFave = $("<button>").addClass("favorite").text("Favorite!").css("float","left"); 
     l.appendTo(divy);
+    toFave.appendTo(divy);
     lightedLinks.append($(divy));
     lightedLinks.appendTo($("div.sect_one"));
     }
-    for(var i = 11; i < 29; i++){
+    for(var i = 9; i < 24; i++){
   
     var divy = $("<div>").attr("id", i).addClass("givs");
     var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href",sampler[i]['images']['original']['url']);
     var l = $("<img>").addClass("gifs").attr("src",sampler[i]['images']['fixed_height']['url']);
+    var toFave = $("<button>").addClass("favorite").text("Favorite!").css("float","left");
     l.appendTo(divy);
+    toFave.appendTo(divy);
     lightedLinks.append($(divy));
     lightedLinks.appendTo($("div.sect_two"));
     }
@@ -39,14 +43,20 @@ function header(){
   // var title = $("<h2>").css("clear","both").css("float","left").css("font-family","Share Tech Mono").html("gif").appendTo(header);
   var logo = $("<img>").addClass("bomb").attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif").appendTo(header);
   var textBox= $("<span>").text("Graphics Interchange Format (better known by its acronym ").append($("<span>").text("gif").addClass("gifspan")).append($("<span>").text("), is a bitmap image format that was introduced by CompuServe in 1987[1]. A never ending loop of awesome[+1].")).addClass("heading").appendTo(header);
- header.prependTo($("section#1"));
+  var logInButton = $("<button>").addClass("login").text("Log In").appendTo(header);
+  var signUpButton = $("<button>").addClass("signup").text("Sign Up").appendTo(header);
+  logInButton.on("click", function(event){event.preventDefault();$(".main").moveTo(3);});
+  signUpButton.on("click", function(event){event.preventDefault();$(".main").moveTo(3);});
+  header.prependTo($("section#1"));
 }
 
 function searchForm() {
   var searchBox = $("<form>").addClass("search");
+  var searchBox2 = $("<form>").addClass("search");
   var keyword  = $("<input>").addClass("keyword").attr("type", "text").attr("name","keyword").attr("placeholder","Search for more gifs...");
+  var keyword2  = $("<input>").addClass("keyword").attr("type", "text").attr("name","keyword").attr("placeholder","Search for more gifs...");
   searchBox.css("text-align", "center").append(keyword).prependTo($("div.sect_one"));
- 
+  searchBox2.css("text-align", "center").append(keyword2).appendTo($("div.sect_two"));
   
   keyword.on("keypress",function(e){
     var code = e.keyCode || e.which;
@@ -58,6 +68,19 @@ function searchForm() {
         $("div.sect_two").empty();
         searchForm();
         giphyTest(keyword.val(), displayGifs);
+      });
+    }
+  });
+  keyword2.on("keypress",function(e){
+    var code = e.keyCode || e.which;
+    if(code == 13) {
+      searchBox2.on("submit", function(event) {
+        event.preventDefault();
+        $(this).remove();
+        $("div.sect_one").empty();
+        $("div.sect_two").empty();
+        searchForm();
+        giphyTest(keyword2.val(), displayGifs);
       });
     }
   });
