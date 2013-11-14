@@ -51,8 +51,8 @@ class UsersController < ApplicationController
 # whitelisting
   private
 
-  def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  def user_params 
+    params.require(:user).permit(:username, :email, :password, :avatar, :password_confirmation)
   end
 
   def set_user

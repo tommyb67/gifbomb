@@ -10,7 +10,7 @@ function newUserForm(){
   var form = $("<form>");
   var username = $("<input>").attr("type", "text").attr("name","username").attr("placeholder", "Username");
   var email = $("<input>").attr("type","text").attr("name","email").attr("placeholder","Email");
-  var avatar = $("<input>").attr("type","text").attr("name","avatar").attr("placeholder","Avatar URL");
+  var avatar = $("<input>").attr("type","url").attr("name","avatar").attr("placeholder","Avatar URL");
   var password = $("<input>").attr("type","password").attr("name","password").attr("placeholder","Password");
   var password_confirmation = $("<input>").attr("type","password").attr("name", "password_confirmation").attr("placeholder","Confirm");
   var button = $("<button>").html("Bueno!");
@@ -92,7 +92,9 @@ function appendAvatar(user) {
     type: "GET",
     dataType: "json",
     success: function(user){
+      console.log(user.avatar);
       var img = $("<img src=" + user.avatar  +">");   
+      img.attr('id', 'avatar-img');
       $("div.sect_three").append(img);
     },
     context: this
