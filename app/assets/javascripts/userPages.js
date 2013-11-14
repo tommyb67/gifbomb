@@ -52,6 +52,7 @@ function logIn() {
   logInForm.on("submit", function(event){
     event.preventDefault();
     $("div.sect_three").empty();
+    
     $.ajax({
       url: "/session",
       type: "POST",
@@ -59,6 +60,8 @@ function logIn() {
       success: function(userObject){
         console.log(userObject);
         $("div.sect_three").empty();
+        // var userPanelDiv = $("<div>").attr("id","user-panel");
+        // userPanelDiv.appendTo($("div.sect_three"));
         logOut();
         appendAvatar(userObject);
         viewFavorites(userObject);
