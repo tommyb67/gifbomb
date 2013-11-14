@@ -19,9 +19,9 @@ div.header{
   font-size:50px;
 }
 h1.def{
-  float:left; 
+  float:left;
   font-family: 'Share Tech Mono', sans-serif;
-  font-size:100px; 
+  font-size:100px;
   color:black;
 }
 span.heading{
@@ -36,28 +36,28 @@ img.bomb{
   height: 175px;
 }
 div.sect_one{
-  width:90%; 
-  height: 100%; 
+  width:90%;
+  height: 100%;
   margin-top: 1%;
   margin-left: 5%;
   margin-right:5%;
 }
 div.sect_two{
-  width:90%; 
-  height: 100%; 
+  width:90%;
+  height: 100%;
   margin-top: 1%;
   margin-left: 5%;
   margin-right:5%;
 }
 div.sect_three{
-  width:60%; 
-  height: 100%; 
+  width:60%;
+  height: 100%;
   margin:14% auto;
 }
 span.defined{
   float:left;
   font-family: 'Share Tech Mono', sans-serif;
-  font-size:30px; 
+  font-size:30px;
   color:black;
 }
 section{
@@ -100,7 +100,7 @@ form.search{
   margin-right:165px;
   text-align:center;
   margin-bottom: 30px;
-  
+
   -moz-box-shadow: 0 0 5px lavenderblush;
   -webkit-box-shadow: 0 0 5px lavenderblush;
   box-shadow: 0 0 5px lavenderblush;
