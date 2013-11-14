@@ -43,6 +43,9 @@ gem 'pry-rails'
 # Adding the gem to deploy to heroku
 gem 'rails_12factor', group: :production
 
+# New Relic add on gem in Heroku
+gem 'newrelic_rpm'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
