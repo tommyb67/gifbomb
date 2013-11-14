@@ -57,6 +57,7 @@ function logIn() {
         $("div.sect_three").empty();
         logOut();
         appendAvatar(userObject);
+        adminButton();
         },
       error: function(){
         alert("There was a problem logging you in");
@@ -84,17 +85,26 @@ function logOut(){
 };
 
 
-
-
-function appendAvatar(user) {
+function appendAvatar(user){
   $.ajax({
     url: "/users/" + user,
     type: "GET",
     dataType: "json",
     success: function(user){
-      var img = $("<img src=" + user.avatar  +">");   
+      var img = $("<img src=" + user.avatar  +">");
       $("div.sect_three").append(img);
     },
     context: this
-  })
+  });
 }
+
+function adminButton(){
+  var adminForm = $("<form action='/admins'></form>");
+  var button = $("<input type='submit' value='Admin' />");
+  adminForm.append(button);
+  adminForm.appendTo($("div.sect_three"));
+}
+
+
+
+

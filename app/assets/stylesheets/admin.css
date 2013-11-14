@@ -1,0 +1,16 @@
+
+div.adminMain ul{
+  max-width: 60%;
+  border-width: 20px;
+  border-color: black;
+  border-radius: 10px;
+  background-color: blue;
+  padding: 20px;
+}
+
+div.adminButtons{
+  max-width: 20%;
+  background-color: black;
+  padding: 5px;
+
+}
