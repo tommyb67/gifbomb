@@ -1,12 +1,15 @@
 
+<form action="/" method="GET">
+  <input type="submit" value="Return to Gifs" />
+</form>
 
 <div class="adminMain">
 
 <% @users.each do |user| %>
     <ul id="<%= user.id %>">
-    <li><%= user.username %></li>
-    <li><%= user.email %></li>
-    <li><%= user.admin %></li>
+    <li>Username: <%= user.username %></li>
+    <li>email: <%= user.email %></li>
+    <li>Is admin?: <%= user.admin %></li>
 
     <% if user.admin == false %>
       <div class="adminButtons">
