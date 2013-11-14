@@ -21,17 +21,14 @@ function favorite(){
           type: "POST",
           //data: "user[username]=a&user[email]=a%40b.c&user[password]=a&user[password_confirmation]=a",
           data: "user[gifs]="+url,
-          success: function(){$(this).parent().attr("class","givs clicked");
-                              console.log($(this).parent().parent() );
+          success: function(){
+                              $(this).parent().attr("class","givs clicked");
                               favoritedGif = $(this).parent().parent();
-                              console.log("waaaaaaaa");
                               $("div.sect_three").append(favoritedGif);
+                                
                             },
           context:this
           });
-          // $("section#3").append(dude);
-          alert("poop");
-          // viewFavorites(gifObject);
         },
         error: function(){alert("Sorry there was a problem");},
         context:this
