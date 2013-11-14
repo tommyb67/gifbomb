@@ -97,23 +97,23 @@ function appendAvatar(user){
     dataType: "json",
     success: function(user){
       var img = $("<img src=" + user.avatar  +">");
-      $("div.sect_three").append(img);
+      $("div.sect_three").prepend(img);
     },
     context: this
   });
 }
 
 
-function viewFavorites(user){
+function viewFavorites(userId){
   $.ajax({
-    url: "/users/" + user + "/favorites",
+    url: "/users/" + userId + "/favorites",
     type: "GET",
     dataType: "json",
     success: function(user){
-      for (var i = user.length - 1; i >= 0; i--) {
+      for (var i= 0; i < user.length; i++ ) {
         var img = $("<img src=" + user[i].url +">");
         img.attr('class', 'fav-gif');
-        $("div.sect_three").append(img);
+        $("div.sect_three").prepend(img);
       };
 
     },
