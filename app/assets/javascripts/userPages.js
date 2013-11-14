@@ -7,6 +7,9 @@ function newAndLogIn(){
 };
 
 function newUserForm(){
+  // var newUserDiv = $("<div>");
+  // newUserDiv.attr("id", "new-user-div");
+
   var form = $("<form>");
   var username = $("<input>").attr("type", "text").attr("name","username").attr("placeholder", "Username");
   var email = $("<input>").attr("type","text").attr("name","email").attr("placeholder","Email");
@@ -15,6 +18,7 @@ function newUserForm(){
   var password_confirmation = $("<input>").attr("type","password").attr("name", "password_confirmation").attr("placeholder","Confirm");
   var button = $("<button>").html("Bueno!");
 
+  // newUserDiv.appendTo($("div.sect_three"));
   form.append(username).append(email).append(avatar).append(password).append(password_confirmation).append(button).appendTo($("div.sect_three"));
 
   form.on("submit", function(event){
@@ -57,6 +61,7 @@ function logIn() {
         $("div.sect_three").empty();
         logOut();
         appendAvatar(userObject);
+        viewFavorites(userObject);
         },
       error: function(){
         alert("There was a problem logging you in");
@@ -98,5 +103,20 @@ function appendAvatar(user) {
       $("div.sect_three").append(img);
     },
     context: this
-  })
+  });
+}
+
+
+function viewFavorites(user){
+  $.ajax({
+    url: "/users/" + user + "/favorites",
+    type: "GET",
+    dataType: "json",
+    success: function(user){
+      var currentUser = user;
+      console.log(currentUser);
+    },
+    context: this
+  });
+
 }

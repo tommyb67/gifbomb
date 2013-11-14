@@ -8,8 +8,13 @@ Gifbomb::Application.routes.draw do
     end
   end
   
-  resources :users
-  
+  resources :users do
+    member do
+      get "favorites"
+    end
+  end
+
+
   resource :session, only: [:new, :create, :destroy]
 
   resources :admins do

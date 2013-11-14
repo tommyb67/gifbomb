@@ -19,6 +19,11 @@ class UsersController < ApplicationController
 
   end
 
+  def favorites
+    @user = User.find(params[:id])
+    render json: @user.gifs
+  end
+
   def update
     @user = User.find(params[:id])
 

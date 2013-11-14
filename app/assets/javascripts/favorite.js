@@ -25,9 +25,10 @@ function favorite(){
           type: "POST",
           //data: "user[username]=a&user[email]=a%40b.c&user[password]=a&user[password_confirmation]=a",
           data: "user[gifs]="+url,
-          success: function(){alert("favorited");favoriteButton.remove();},
+          success: function(){alert("favorited");favoriteButton.remove(); console.log("user[gifs]="+url)},
           context:this
           });
+          // viewFavorites(gifObject);
         },
         error: function(){alert("Sorry there was a problem");},
         context:this
@@ -36,3 +37,20 @@ function favorite(){
   });
   }
 }
+
+
+// function viewFavorites(user){
+//   $.ajax({
+//     url: "/users/" + user,
+//     type: "GET",
+//     dataType: "json",
+//     success: function(user){
+//       console.log(user.gifs);
+//       var img = $("<img src=" + user.avatar  +">");   
+//       img.attr('class', 'img-fav');
+//       $("div.sect_three").append(img);
+//     },
+//     context: this
+//   })
+
+// }
