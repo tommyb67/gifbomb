@@ -17,7 +17,4 @@
 //= require_tree .
 //= require onepage-scroll.js
 //= require underscore.js 
-//= require jquery.easing.1.3.js
-//= require jquery.contentcarousel.js
 //= require lightbox-2.6.min.js
-
