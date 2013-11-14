@@ -18,9 +18,10 @@ function newUserForm(){
   var password_confirmation = $("<input>").attr("type","password").attr("name", "password_confirmation").attr("placeholder","Confirm");
   var button = $("<button>").html("Bueno!");
 
+  var newFormDiv = $("<div>").addClass("newFormDiv");
   // newUserDiv.appendTo($("div.sect_three"));
-  form.append(username).append(email).append(avatar).append(password).append(password_confirmation).append(button).appendTo($("div.sect_three"));
-
+  form.append(username).append(email).append(avatar).append(password).append(password_confirmation).append(button).appendTo(newFormDiv);
+  newFormDiv.appendTo("div.sect_three");
   form.on("submit", function(event){
     event.preventDefault();
 
@@ -47,7 +48,8 @@ function logIn() {
   var logInButton = $("<button>").html("Wilkommen");
 
   logInForm.append(emailLogin).append(passWord).append(logInButton);
-  logInForm.appendTo($("div.sect_three"));
+  var logInDiv = $("<div>").addClass("logInDiv").append(logInForm);
+  logInDiv.appendTo($("div.sect_three"));
 
   logInForm.on("submit", function(event){
     event.preventDefault();

@@ -143,3 +143,22 @@ form.search{
   width: 150px;
   height: 150px;
 }
+.newFormDiv{
+  float:left;
+  width: 400px;
+  height:400px;
+  background-color: rgba(0,0,0,.7);
+  -moz-box-shadow: 0 0 2px goldenrod;
+  -webkit-box-shadow: 0 0 2px goldenrod;
+  box-shadow: 0 0 2px goldenrod;
+
+}
+.logInDiv{
+  float:left;
+  width: 400px;
+  height:400px;
+  background-color: rgba(0,0,0,.7);
+  -moz-box-shadow: 0 0 2px goldenrod;
+  -webkit-box-shadow: 0 0 2px goldenrod;
+  box-shadow: 0 0 2px goldenrod;
+}
