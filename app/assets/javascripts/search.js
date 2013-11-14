@@ -3,7 +3,7 @@ var searchWord = "";
 
 function giphyTest(searchTerm, callback){
 searchWord = searchTerm;
-$.getJSON("http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dc6zaTOxFJmzC&limit=100", function(data){callback(data); });
+$.getJSON("http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dc6zaTOxFJmzC&limit=36", function(data){callback(data); });
 
 };
 
@@ -11,10 +11,10 @@ function displayGifs(gifHash){
   // console.log($(test).length, $(test)[0]['data'][0], $(test)[0]['data'][1]['images']['original']['url']);
 
   // takes a sample of 100 gifs
-  var sampler = _.sample($(gifHash)[0]['data'], 12);
+  var sampler = _.sample($(gifHash)[0]['data'], 36);
   
   // displays random gifs
-  for(var i = 0; i < sampler.length; i++){
+  for(var i = 0; i < 12; i++){
   
     var divy = $("<div>").attr("id", i).addClass("givs");
     var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href",sampler[i]['images']['original']['url']);
@@ -22,22 +22,29 @@ function displayGifs(gifHash){
     l.appendTo(divy);
     lightedLinks.append($(divy));
     lightedLinks.appendTo($("div.sect_one"));
-    // divy.on("click", function(){$("span.lb-number").empty().append($("<button>").text("Favorite!"));});
-   
+    }
+    for(var i = 11; i < 29; i++){
+  
+    var divy = $("<div>").attr("id", i).addClass("givs");
+    var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href",sampler[i]['images']['original']['url']);
+    var l = $("<img>").addClass("gifs").attr("src",sampler[i]['images']['fixed_height']['url']);
+    l.appendTo(divy);
+    lightedLinks.append($(divy));
+    lightedLinks.appendTo($("div.sect_two"));
     }
 };
 
 function header(){
   var header = $("<div>").addClass("header");
-  var title = $("<h2>").css("clear","both").css("float","left").css("font-family","Share Tech Mono").html("gif").appendTo(header);
+  // var title = $("<h2>").css("clear","both").css("float","left").css("font-family","Share Tech Mono").html("gif").appendTo(header);
   var logo = $("<img>").addClass("bomb").attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif").appendTo(header);
+  var textBox= $("<span>").text("Graphics Interchange Format (better known by its acronym ").append($("<span>").text("gif").addClass("gifspan")).append($("<span>").text("), is a bitmap image format that was introduced by CompuServe in 1987[1]. A never ending loop of awesome[+1].")).addClass("heading").appendTo(header);
  header.prependTo($("section#1"));
 }
 
 function searchForm() {
-  var header = $("div.header")
   var searchBox = $("<form>").addClass("search");
-  var keyword  = $("<input>").addClass("keyword").attr("type", "text").attr("name","keyword").attr("placeholder","Search");
+  var keyword  = $("<input>").addClass("keyword").attr("type", "text").attr("name","keyword").attr("placeholder","Search for more gifs...");
   searchBox.css("text-align", "center").append(keyword).prependTo($("div.sect_one"));
  
   

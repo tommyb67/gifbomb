@@ -86,7 +86,6 @@ function logOut(){
 
 
 function appendAvatar(user) {
-  console.log(user);
   $.ajax({
     url: "/users/" + user,
     type: "GET",

@@ -250,7 +250,7 @@ body {
   padding: 0 0 40px 0;
   margin-bottom: 40px;
   *zoom: 1;
-  border-bottom: 4px solid #373737;
+  border-bottom: none;
 }
 /* line 38, ../../../../.rvm/gems/ruby-1.9.3-p392/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .section:after {

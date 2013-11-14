@@ -1,18 +1,32 @@
 body{
-  background-color: #fefefe;
+  background:url("http://cdn.stickerzlab.com/media/catalog/product/cache/2/small_image/170x/9df78eab33525d08d6e5fb8d27136e95/c/u/customisez_bibliotheques_ikea_autocollants_motifs_chevrons_expedit185x39x185.png");
+  margin-top:0px;
 }
 div.header{
   background-color: white;
   width:90%;
   height:180px;
   margin-left:20px;
-  padding:10px;
-  border: 1px red solid;
+  margin-top: 5px;
+  padding:20px;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 0px 2px indianred;
+  -webkit-box-shadow: 0px 0px 2px indianred;
+  box-shadow: 0px 0px 2px indianred;
+}
+.gifspan{
+  color: indianred;
+  font-size:50px;
 }
 h1.def{
   float:left; 
   font-family: 'Share Tech Mono', sans-serif;
   font-size:100px; 
+  color:black;
+}
+span.heading{
+  font-family: 'Share Tech Mono', sans-serif;
+  font-size: 30px;
   color:black;
 }
 img.bomb{
@@ -22,6 +36,13 @@ img.bomb{
   height: 175px;
 }
 div.sect_one{
+  width:90%; 
+  height: 100%; 
+  margin-top: 1%;
+  margin-left: 5%;
+  margin-right:5%;
+}
+div.sect_two{
   width:90%; 
   height: 100%; 
   margin-top: 1%;
@@ -49,11 +70,17 @@ section{
   float:left;
   margin-left:10px;
   margin-top: 10px;
+  margin-bottom: 5px;
   border-radius: 20%;
   border:1px solid white;
   width:200px;
   height:200px;
-  box-shadow: 2px 2px 1px #888888;
+  box-shadow: 1px 1px 2px lightcoral;
+}
+.gifs:hover{
+  -moz-box-shadow: 2px 2px 2px lightcoral;
+  -webkit-box-shadow: 2px 2px 2px lightcoral;
+  box-shadow: 2px 2px 2px lightcoral;
 }
 .gifSingle{
   margin:10px;
@@ -66,22 +93,25 @@ form.search{
 }
 .keyword{
   font-size:25px;
-  font-family:helvetica;
+  font-family: 'Share Tech Mono', sans-serif;
+  color:black;
   height: 30px;
   width: 500px;
   margin-right:165px;
   text-align:center;
-  border:none;
+  margin-bottom: 30px;
+  
+  -moz-box-shadow: 0 0 5px lavenderblush;
+  -webkit-box-shadow: 0 0 5px lavenderblush;
+  box-shadow: 0 0 5px lavenderblush;
 }
 .keyword:hover{
-  -moz-box-shadow: 0 0 10px #9ecaed;
-  -webkit-box-shadow: 0 0 10px #9ecaed;
-  box-shadow: 0 0 10px #9ecaed;
+  -moz-box-shadow: 0 0 2px goldenrod;
+  -webkit-box-shadow: 0 0 2px goldenrod;
+  box-shadow: 0 0 2px goldenrod;
 }
 .keyword:focus{
-  outline: none;
-  border-color: #9ecaed;
-  box-shadow: 0 0 10px #9ecaed;
+  box-shadow: 0 0 2px darkgoldenrod;
 }
 .givs{
 
