@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Set Ruby version
+ruby '2.0.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -36,6 +39,9 @@ end
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'pry-rails'
+
+# Adding the gem to deploy to heroku
+gem 'rails_12factor', group: :production
 
 # Use unicorn as the app server
 # gem 'unicorn'
