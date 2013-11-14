@@ -1,5 +1,10 @@
 class GifsController < ApplicationController
   def index
+    if session[:user_id] != nil
+    @user = User.find(session[:user_id])
+  else
+    @user = User.new
+  end
     render :index
   end
   def create
