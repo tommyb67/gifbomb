@@ -52,7 +52,7 @@ function logIn() {
   logInForm.on("submit", function(event){
     event.preventDefault();
     $("div.sect_three").empty();
-    
+
     $.ajax({
       url: "/session",
       type: "POST",
@@ -101,23 +101,23 @@ function appendAvatar(user){
     success: function(user){
       var img = $("<img src=" + user.avatar  +">");
       img.attr('id', 'avatar-img');
-      $("div.sect_three").append(img);
+      $("div.sect_three").prepend(img);
     },
     context: this
   });
 }
 
 
-function viewFavorites(user){
+function viewFavorites(userId){
   $.ajax({
-    url: "/users/" + user + "/favorites",
+    url: "/users/" + userId + "/favorites",
     type: "GET",
     dataType: "json",
     success: function(user){
-      for (var i = user.length - 1; i >= 0; i--) {
+      for (var i= 0; i < user.length; i++ ) {
         var divy = $("<div>").attr("id", user[i].id).addClass("givs");
         var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href", user[i].url);
-        var l = $("<img>").addClass("gifs").attr("src", user[i].url); 
+        var l = $("<img>").addClass("gifs").attr("src", user[i].url);
         l.appendTo(divy);
         lightedLinks.append($(divy));
         lightedLinks.appendTo($("div.sect_three"));
