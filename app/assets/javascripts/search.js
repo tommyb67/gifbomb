@@ -55,6 +55,7 @@ function searchForm() {
         event.preventDefault();
         $(this).remove();
         $("div.sect_one").empty();
+        $("div.sect_two").empty();
         searchForm();
         giphyTest(keyword.val(), displayGifs);
       });
