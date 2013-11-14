@@ -24,7 +24,7 @@ function favorite(){
           success: function(){$(this).parent().attr("class","givs clicked");},
           context:this
           });
-          // viewFavorites(gifObject);
+          viewFavorites(gifObject.id);
         },
         error: function(){alert("Sorry there was a problem");},
         context:this

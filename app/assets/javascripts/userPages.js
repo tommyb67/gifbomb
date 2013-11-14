@@ -111,9 +111,13 @@ function viewFavorites(user){
     dataType: "json",
     success: function(user){
       for (var i = user.length - 1; i >= 0; i--) {
-        var img = $("<img src=" + user[i].url +">");
-        img.attr('class', 'fav-gif');
-        $("div.sect_three").append(img);
+        var divy = $("<div>").attr("id", user[i].id).addClass("givs");
+        var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href", user[i].url);
+        var l = $("<img>").addClass("gifs").attr("src", user[i].url); 
+        l.appendTo(divy);
+        lightedLinks.append($(divy));
+        lightedLinks.appendTo($("div.sect_three"));
+
       };
 
     },
