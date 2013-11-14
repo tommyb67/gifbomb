@@ -1,18 +1,25 @@
 class AdminsController < ApplicationController
 
     before_action :set_user, only: [:show, :demote, :promote]
-    before_action :authenticated!, :authorized!, only: [:new]
+    # before_action :logged_in?, :authenticated!, :authorized!
 
         def index
-          @users = User.all
-          @user = User.find(session[:user_id])
 
-          if @user.admin == true
+          if logged_in?
+
+            @users = User.all
+            @user = User.find(session[:user_id])
+
+            if @user.admin == true
                 render :index
             else
-                redirect_to root
+                redirect_to "/"
             end
+
+         else
+             redirect_to "/"
         end
+     end
 
         def destroy
             User.destroy(params[:id])
@@ -32,18 +39,32 @@ class AdminsController < ApplicationController
         # end
 
         def promote
+
             @user.admin = true
             @user.save
             redirect_to admins_path
+
         end
 
         def demote
+
             @user.admin = false
             @user.save
             redirect_to admins_path
+
         end
 
     private
+
+    def logged_in?
+        session[:user_id].present?
+    end
+
+    def authenticated!
+        unless logged_in?
+      
+        end
+    end
 
     def authorized!
         @user = User.find(session[:user_id])
