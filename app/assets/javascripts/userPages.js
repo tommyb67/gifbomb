@@ -113,8 +113,14 @@ function viewFavorites(user){
     type: "GET",
     dataType: "json",
     success: function(user){
-      var currentUser = user;
-      console.log(currentUser);
+      for (var i = user.length - 1; i >= 0; i--) {
+        var img = $("<img src=" + user[i].url +">");   
+        img.attr('class', 'fav-gif');
+        $("div.sect_three").append(img);
+      };
+      
+
+
     },
     context: this
   });
