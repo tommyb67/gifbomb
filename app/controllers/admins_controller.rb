@@ -13,11 +13,11 @@ class AdminsController < ApplicationController
             if @user.admin == true
                 render :index
             else
-                redirect_to "/"
+                redirect_to root_path
             end
 
          else
-             redirect_to "/"
+             redirect_to root_path
         end
      end
 
