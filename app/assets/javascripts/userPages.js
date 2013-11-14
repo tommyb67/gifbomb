@@ -97,6 +97,7 @@ function appendAvatar(user){
     dataType: "json",
     success: function(user){
       var img = $("<img src=" + user.avatar  +">");
+      img.attr('id', 'avatar-img');
       $("div.sect_three").append(img);
     },
     context: this
