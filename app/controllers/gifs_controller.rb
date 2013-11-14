@@ -22,6 +22,7 @@ class GifsController < ApplicationController
       render status:400, nothing:true
     end
   end
+  
   def unfavorite
     @gif = Gif.find(params[:id])
     if current_user.unfavorite(@gif)
