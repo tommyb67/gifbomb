@@ -11,8 +11,6 @@
  *= require_self
  *= require_tree .
  *= require onepage-scroll.css
- *= require jquery-contentcarousel.css
- *= require jquery.jscrollpane.css
  *= require lightbox.css
  *= require screen.css
  */

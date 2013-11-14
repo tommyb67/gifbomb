@@ -1,10 +1,5 @@
 class GifsController < ApplicationController
   def index
-    # if logged_in?
-    # @user = User.find(session[:user_id])
-    # else
-    #   @user = nil
-    # end
     render :index
   end
   def create
@@ -28,7 +23,7 @@ class GifsController < ApplicationController
     end
   end
   def unfavorite
-    @gif = Gif.where(url: url)
+    @gif = Gif.find(params[:id])
     if current_user.unfavorite(@gif)
       render status: 200, nothing: true
     else
