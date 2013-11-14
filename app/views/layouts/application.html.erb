@@ -15,7 +15,9 @@
 <%if logged_in?%>
     <script>logOut();</script>
     <script>appendAvatar(<%=session[:user_id]%>)</script>
-    <script>adminButton();</script>
+    <% if is_admin? %>
+      <script>adminButton();</script>
+    <%end%>
   <%else%>
   <script>newAndLogIn();</script>
   <%end%>
