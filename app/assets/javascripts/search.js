@@ -44,9 +44,11 @@ function header(){
 
 function searchForm() {
   var searchBox = $("<form>").addClass("search");
+  var searchBox2 = $("<form>").addClass("search");
   var keyword  = $("<input>").addClass("keyword").attr("type", "text").attr("name","keyword").attr("placeholder","Search for more gifs...");
+  var keyword2  = $("<input>").addClass("keyword").attr("type", "text").attr("name","keyword").attr("placeholder","Search for more gifs...");
   searchBox.css("text-align", "center").append(keyword).prependTo($("div.sect_one"));
- 
+  searchBox2.css("text-align", "center").append(keyword2).appendTo($("div.sect_two"));
   
   keyword.on("keypress",function(e){
     var code = e.keyCode || e.which;
@@ -58,6 +60,19 @@ function searchForm() {
         $("div.sect_two").empty();
         searchForm();
         giphyTest(keyword.val(), displayGifs);
+      });
+    }
+  });
+  keyword2.on("keypress",function(e){
+    var code = e.keyCode || e.which;
+    if(code == 13) {
+      searchBox2.on("submit", function(event) {
+        event.preventDefault();
+        $(this).remove();
+        $("div.sect_one").empty();
+        $("div.sect_two").empty();
+        searchForm();
+        giphyTest(keyword2.val(), displayGifs);
       });
     }
   });
