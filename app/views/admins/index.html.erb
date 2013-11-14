@@ -1,36 +1,36 @@
-<!-- <div class="adminMain">
 
-< @users.each do |user| %>
-    <ul id="< user.id %>">
-    <li>< user.username %></li>
-    <li>< user.email %></li>
-    <li>< user.admin %></li>
 
-    < if user.admin == false >
+<div class="adminMain">
+
+<% @users.each do |user| %>
+    <ul id="<%= user.id %>">
+    <li><%= user.username %></li>
+    <li><%= user.email %></li>
+    <li><%= user.admin %></li>
+
+    <% if user.admin == false %>
       <div class="adminButtons">
-        <= button_to "Promote", {:controller => :admins,
-        :action => 'promote', :id => user.id }, :method => :post >
+        <%= button_to "Promote", {:controller => :admins,
+        :action => 'promote', :id => user.id }, :method => :post %>
       </div>
 
-        < else >
+        <% else %>
       <div class="adminButtons">
-        <= button_to "Demote", {:controller => :admins,
-        :action => 'demote', :id => user.id }, :method => :post >
+        <%= button_to "Demote", {:controller => :admins,
+        :action => 'demote', :id => user.id }, :method => :post %>
       </div>
 
-    < end >
+    <% end %>
 
     <div class="adminButtons">
-      <= button_to "delete", {:controller => :admins,
-      :action => 'destroy', :id => user.id }, :method => :delete >
+      <%= button_to "delete", {:controller => :admins,
+      :action => 'destroy', :id => user.id }, :method => :delete %>
     </div>
 
   </ul>
-< end >
+<% end %>
 
-</div> -->
-
-
+</div>
 
 
 
