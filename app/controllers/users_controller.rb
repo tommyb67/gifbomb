@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :set_user, :authorized!, except: [:new, :create]
-  # before_action :authenticated!
+  before_action :authenticated!
   #FIXME authenticated is an unknown method
   def index
     @user = User.all
@@ -57,6 +57,17 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  
+  def logged_in?
+    session[:user_id].present?
+  end
+  
+  def authenticated!
+    unless logged_in?
+      
+    end
   end
 
   def authorized!
