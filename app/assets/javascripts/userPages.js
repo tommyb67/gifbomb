@@ -105,6 +105,7 @@ function appendAvatar(user){
       }
       else{ var img = $("<img src='http://community.bhf.org.uk/sites/default/files/profile_images/bhf_generic-avatar_01.png'>"); }
       img.attr('id', 'avatar-img');
+      var username = $("<span>").addClass("user_greeting").text("Welcome, " + user.username + " | " + user.email).prependTo($("div.sect_three"));
       $("div.sect_three").prepend(img);
     },
     context: this
@@ -123,7 +124,7 @@ function viewFavorites(userId){
         var divy = $("<div>").attr("id", user[i].id).addClass("givs");
         var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href", user[i].url);
         var l = $("<img>").addClass("gifs").attr("src", user[i].url);
-        var toUnFave = $("<button>").addClass("unfavorite").text("DESTROY!").css("float","left"); 
+        var toUnFave = $("<button>").addClass("unfavorite").text("DESTROY!").css("float","left");
         l.appendTo(divy);
         toUnFave.appendTo(divy);
         lightedLinks.append($(divy));
