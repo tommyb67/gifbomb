@@ -142,7 +142,7 @@ function viewFavorites(userId){
 function adminButton(){
   var adminForm = $("<form action='/admins'></form>");
   var button = $("<input type='submit' value='Admin' />");
-  button.addClass('login');
+  button.attr('id','admin');
   adminForm.append(button);
   adminForm.appendTo($("div.sect_three"));
 }
