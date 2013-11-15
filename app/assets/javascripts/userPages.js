@@ -10,7 +10,7 @@ function newUserForm(){
   // var newUserDiv = $("<div>");
   // newUserDiv.attr("id", "new-user-div");
 
-  var form = $("<form>");
+  var form = $("<form>").addClass("newUserForm");
   var username = $("<input>").attr("type", "text").attr("name","username").attr("placeholder", "Username");
   var email = $("<input>").attr("type","text").attr("name","email").attr("placeholder","Email");
   var avatar = $("<input>").attr("type","url").attr("name","avatar").attr("placeholder","Avatar URL");
@@ -42,13 +42,14 @@ function newUserForm(){
 
 
 function logIn() {
-  var logInForm = $("<form>");
+  var logInForm = $("<form>").addClass("loginForm");
   var emailLogin = $("<input>").attr("type","text").attr("name","email").attr("placeholder","Email");
   var passWord = $("<input>").attr("type","password").attr("name","password").attr("placeholder","Password");
   var logInButton = $("<button>").html("Wilkommen");
 
   logInForm.append(emailLogin).append(passWord).append(logInButton);
-  var logInDiv = $("<div>").addClass("logInDiv").append(logInForm);
+  var logInDiv = $("<div>").addClass("logInDiv")
+  logInDiv.append(logInForm);
   logInDiv.appendTo($("div.sect_three"));
 
   logInForm.on("submit", function(event){
@@ -111,6 +112,7 @@ function appendAvatar(user){
 
 
 function viewFavorites(userId){
+  var favoritesDiv = $("<div>").addClass("favoritesDiv");
   $.ajax({
     url: "/users/" + userId + "/favorites",
     type: "GET",
@@ -120,12 +122,15 @@ function viewFavorites(userId){
         var divy = $("<div>").attr("id", user[i].id).addClass("givs");
         var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href", user[i].url);
         var l = $("<img>").addClass("gifs").attr("src", user[i].url);
+        var toUnFave = $("<button>").addClass("unfavorite").text("DESTROY!").css("float","left"); 
         l.appendTo(divy);
+        toUnFave.appendTo(divy);
         lightedLinks.append($(divy));
-        lightedLinks.appendTo($("div.sect_three"));
+        lightedLinks.appendTo(favoritesDiv);
+
 
       };
-
+      favoritesDiv.appendTo($("div.sect_three"));
     },
     context: this
   });
