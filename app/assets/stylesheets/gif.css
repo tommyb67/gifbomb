@@ -258,3 +258,9 @@ button.login {
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
+div.sect_four{
+  background-image: url('domsquad.jpg');
+  width:900px;
+  height: 650px;
+  margin: 0 auto;
+}
