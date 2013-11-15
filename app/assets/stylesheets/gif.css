@@ -208,6 +208,8 @@ form.search{
 #avatar-img{
   width: 150px;
   height: 150px;
+  border-radius: 5px;
+  border: 6px solid rgba(0,0,0,.7);
 }
 
 button.login {
