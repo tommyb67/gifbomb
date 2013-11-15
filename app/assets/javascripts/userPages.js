@@ -16,7 +16,7 @@ function newUserForm(){
   var avatar = $("<input>").attr("type","url").attr("name","avatar").attr("placeholder","Avatar URL");
   var password = $("<input>").attr("type","password").attr("name","password").attr("placeholder","Password");
   var password_confirmation = $("<input>").attr("type","password").attr("name", "password_confirmation").attr("placeholder","Confirm");
-  var button = $("<button>").html("Bueno!");
+  var button = $("<button>").addClass("login").html("Bueno!");
 
   var newFormDiv = $("<div>").addClass("newFormDiv");
   // newUserDiv.appendTo($("div.sect_three"));
@@ -45,7 +45,7 @@ function logIn() {
   var logInForm = $("<form>").addClass("loginForm");
   var emailLogin = $("<input>").attr("type","text").attr("name","email").attr("placeholder","Email");
   var passWord = $("<input>").attr("type","password").attr("name","password").attr("placeholder","Password");
-  var logInButton = $("<button>").html("Wilkommen");
+  var logInButton = $("<button>").addClass("login").html("Wilkommen");
 
   logInForm.append(emailLogin).append(passWord).append(logInButton);
   var logInDiv = $("<div>").addClass("logInDiv")
@@ -79,7 +79,7 @@ function logIn() {
 
 };
 function logOut(){
-  var logout = $("<button>").html("LOGOUT").appendTo($("div.sect_three"));
+  var logout = $("<button>").addClass("login").html("LOGOUT").appendTo($("div.sect_three"));
   logout.on("click", function(){
     $.ajax({
       url: "/session",
@@ -142,6 +142,7 @@ function viewFavorites(userId){
 function adminButton(){
   var adminForm = $("<form action='/admins'></form>");
   var button = $("<input type='submit' value='Admin' />");
+  button.attr('id','admin');
   adminForm.append(button);
   adminForm.appendTo($("div.sect_three"));
 }

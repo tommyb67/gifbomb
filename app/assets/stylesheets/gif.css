@@ -208,9 +208,13 @@ form.search{
 #avatar-img{
   width: 150px;
   height: 150px;
+  border-radius: 5px;
+  border: 6px solid rgba(0,0,0,.7);
+  display: block;
 }
 
 button.login {
+  font-weight: bold;
   display: inline;
   padding:8px;
   margin: 5px;
@@ -257,4 +261,15 @@ button.login {
     border-radius: 4px;
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+input#admin{
+  display: block;
+  padding:7px;
+  margin: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 0px 2px indianred;
+  -webkit-box-shadow: 0px 0px 2px indianred;
+  box-shadow: 0px 0px 2px indianred;
+  text-align: center;
+  color:black;
 }
