@@ -51,7 +51,7 @@ function header(){
   var logo = $("<img>").addClass("bomb").attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif").appendTo(header);
   var textBox= $("<span>").text("Graphics Interchange Format (better known by its acronym ").append($("<span>").text("gif").addClass("gifspan")).append($("<span>").text("), is a bitmap image format that was introduced by CompuServe in 1987[1]. A never ending loop of awesome[+1].")).addClass("heading").appendTo(header);
   var logInButton = $("<button>").addClass("login").text("Log In").appendTo(header);
-  var signUpButton = $("<button>").addClass("signup").text("Sign Up").appendTo(header);
+  var signUpButton = $("<button>").addClass("login").text("Sign Up").appendTo(header);
   logInButton.on("click", function(event){event.preventDefault();$(".main").moveTo(3);});
   signUpButton.on("click", function(event){event.preventDefault();$(".main").moveTo(3);});
   header.prependTo($("section#1"));
