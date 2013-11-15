@@ -79,7 +79,7 @@ function logIn() {
 
 };
 function logOut(){
-  var logout = $("<button>").html("LOGOUT").appendTo($("div.sect_three"));
+  var logout = $("<button>").addClass("login").html("LOGOUT").appendTo($("div.sect_three"));
   logout.on("click", function(){
     $.ajax({
       url: "/session",
@@ -142,6 +142,7 @@ function viewFavorites(userId){
 function adminButton(){
   var adminForm = $("<form action='/admins'></form>");
   var button = $("<input type='submit' value='Admin' />");
+  button.addClass('login');
   adminForm.append(button);
   adminForm.appendTo($("div.sect_three"));
 }
