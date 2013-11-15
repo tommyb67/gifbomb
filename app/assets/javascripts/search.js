@@ -75,6 +75,7 @@ function searchForm() {
         $("div.sect_two").empty();
         searchForm();
         giphyTest(keyword.val(), displayGifs);
+        $(".main").moveTo(1);
       });
     }
   });
@@ -88,6 +89,7 @@ function searchForm() {
         $("div.sect_two").empty();
         searchForm();
         giphyTest(keyword2.val(), displayGifs);
+        $(".main").moveTo(1);
       });
     }
   });
