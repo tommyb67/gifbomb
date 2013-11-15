@@ -9,7 +9,13 @@ $.getJSON("http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dc6z
 
 function displayGifs(gifHash){
   // console.log($(test).length, $(test)[0]['data'][0], $(test)[0]['data'][1]['images']['original']['url']);
-
+   if(gifHash.data.length < 1){
+    var errorDiv = $("<div>").attr('id','error-div');
+    var searchError = $("<h3>").attr('id','error').text('No gifs found on that search.');
+    errorDiv.appendTo($("div.sect_one"));
+    searchError.appendTo(errorDiv);
+   }
+   else{
   // takes a sample of 100 gifs
   var sampler = _.sample($(gifHash)[0]['data'], 36);
   
@@ -36,6 +42,7 @@ function displayGifs(gifHash){
     lightedLinks.append($(divy));
     lightedLinks.appendTo($("div.sect_two"));
     }
+  };
 };
 
 function header(){
@@ -44,7 +51,7 @@ function header(){
   var logo = $("<img>").addClass("bomb").attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif").appendTo(header);
   var textBox= $("<span>").text("Graphics Interchange Format (better known by its acronym ").append($("<span>").text("gif").addClass("gifspan")).append($("<span>").text("), is a bitmap image format that was introduced by CompuServe in 1987[1]. A never ending loop of awesome[+1].")).addClass("heading").appendTo(header);
   var logInButton = $("<button>").addClass("login").text("Log In").appendTo(header);
-  var signUpButton = $("<button>").addClass("signup").text("Sign Up").appendTo(header);
+  var signUpButton = $("<button>").addClass("login").text("Sign Up").appendTo(header);
   logInButton.on("click", function(event){event.preventDefault();$(".main").moveTo(3);});
   signUpButton.on("click", function(event){event.preventDefault();$(".main").moveTo(3);});
   header.prependTo($("section#1"));
