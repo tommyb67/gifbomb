@@ -16,7 +16,7 @@ function favorite(){
         //data: "user[username]=a&user[email]=a%40b.c&user[password]=a&user[password_confirmation]=a",
         data: "gif[url]=" + url,
         success: function(gifObject){
-          destructo(gifObject.id);
+          
           $.ajax({
           url: "/gifs/"+ gifObject.id + "/favorite",
           type: "POST",
