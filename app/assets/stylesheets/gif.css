@@ -260,7 +260,14 @@ button.login {
 }
 div.sect_four{
   background-image: url('domsquad.jpg');
+<<<<<<< HEAD
   width:900px;
   height: 650px;
   margin: 0 auto;
+=======
+  width: 900px;
+  height:650px;
+  margin:0 auto;
+
+>>>>>>> master
 }
