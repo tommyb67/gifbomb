@@ -10,7 +10,7 @@ function destructo(gifId){
     $.ajax({
       url: "/gifs/" + gifId +"/unfavorite",
       type: "DELETE",
-      dataType: "json",x
+      dataType: "json",
       data: {"_method": "unfavorite"},
       context: this
     });
