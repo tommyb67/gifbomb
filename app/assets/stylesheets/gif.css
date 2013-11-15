@@ -210,7 +210,7 @@ form.search{
   height: 150px;
 }
 
-button.login{
+button.login {
   display: inline;
   padding:8px;
   margin: 5px;
@@ -220,6 +220,7 @@ button.login{
   box-shadow: 0px 0px 2px indianred;
   text-align: center;
 }
+
 .newFormDiv{
   border-radius: 20%;
   float:left;
