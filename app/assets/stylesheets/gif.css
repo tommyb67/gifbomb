@@ -24,6 +24,23 @@ h1.def{
   font-size:100px;
   color:black;
 }
+h3#error{
+  color:black;
+  text-align: center;
+  font-family: 'Share Tech Mono', sans-serif;
+}
+div#error-div{
+ background-color: white;
+ width: 30%;
+ margin-left: 29%;
+  margin-top: 20px;
+  padding:20px;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 0px 2px indianred;
+  -webkit-box-shadow: 0px 0px 2px indianred;
+  box-shadow: 0px 0px 2px indianred;
+
+}
 span.heading{
   font-family: 'Share Tech Mono', sans-serif;
   font-size: 30px;
