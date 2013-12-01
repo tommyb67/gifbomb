@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
     end
   end
   def unfavorite(url)
-    self.gifs.destroy(url)
+    self.gifs.delete(Gif.where(url: url))
   end
 end

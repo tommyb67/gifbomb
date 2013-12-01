@@ -21,28 +21,33 @@ function displayGifs(gifHash){
   
   // displays random gifs
   for(var i = 0; i < 10; i++){
-  
+    var wrap = $("<div>").addClass("wrap");
     var divy = $("<div>").attr("id", i).addClass("givs");
-    var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href",sampler[i]['images']['original']['url']);
+    var gifWrap = $("<div class = 'adiv'>");
+    var lightedLinks = $("<a>").attr("rel", "gallery").attr("class","fancybox").attr("href",sampler[i]['images']['original']['url']).fancybox();
     var l = $("<img>").addClass("gifs").attr("src",sampler[i]['images']['fixed_height']['url']);
     var toFave = $("<button>").addClass("favorite").text("Favorite!").css("float","left"); 
-    l.appendTo(divy);
-    toFave.appendTo(divy);
-    lightedLinks.append($(divy));
-    lightedLinks.appendTo($("div.sect_one"));
+    toFave.appendTo(wrap);
+    lightedLinks.append(l);
+    gifWrap.append(lightedLinks).appendTo(wrap);
+    wrap.appendTo($("div.sect_one"));
     }
     for(var i = 9; i < 24; i++){
-  
+    var wrap = $("<div>").addClass("wrap");
     var divy = $("<div>").attr("id", i).addClass("givs");
-    var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href",sampler[i]['images']['original']['url']);
+    var gifWrap = $("<div class = 'adiv'>");
+    var lightedLinks =$("<a>").attr("rel", "gallery").attr("class","fancybox").attr("href",sampler[i]['images']['original']['url']).fancybox();
     var l = $("<img>").addClass("gifs").attr("src",sampler[i]['images']['fixed_height']['url']);
     var toFave = $("<button>").addClass("favorite").text("Favorite!").css("float","left");
-    l.appendTo(divy);
-    toFave.appendTo(divy);
-    lightedLinks.append($(divy));
-    lightedLinks.appendTo($("div.sect_two"));
+    toFave.appendTo(wrap);
+    lightedLinks.append(l);
+    gifWrap.append(lightedLinks).appendTo(wrap);
+    wrap.appendTo($("div.sect_two"));
     }
   };
+  favorite();
+  destroyGif();
+  editUser();
 };
 
 function header(){
@@ -50,8 +55,8 @@ function header(){
   // var title = $("<h2>").css("clear","both").css("float","left").css("font-family","Share Tech Mono").html("gif").appendTo(header);
   var logo = $("<img>").addClass("bomb").attr("src","http://fc01.deviantart.net/fs49/f/2009/230/0/3/Bobomb_Sploding_by_OldManRupee.gif").appendTo(header);
   var textBox= $("<span>").text("Graphics Interchange Format (better known by its acronym ").append($("<span>").text("gif").addClass("gifspan")).append($("<span>").text("), is a bitmap image format that was introduced by CompuServe in 1987[1]. A never ending loop of awesome[+1].")).addClass("heading").appendTo(header);
-  var logInButton = $("<button>").addClass("login").text("Log In").appendTo(header);
-  var signUpButton = $("<button>").addClass("login").text("Sign Up").appendTo(header);
+  var logInButton = $("<button>").addClass("login-top").text("Log In").appendTo(header);
+  var signUpButton = $("<button>").addClass("login-top").text("Sign Up").appendTo(header);
   logInButton.on("click", function(event){event.preventDefault();$(".main").moveTo(3);});
   signUpButton.on("click", function(event){event.preventDefault();$(".main").moveTo(3);});
   header.prependTo($("section#1"));
@@ -103,14 +108,14 @@ $(function(){
 
   $(".main").onepage_scroll({
    sectionContainer: "section", // sectionContainer accepts any kind of selector in case you don't want to use section
-   easing: "ease", // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in", "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
-   animationTime: 1000, // AnimationTime let you define how long each section takes to animate
+   easing: "ease-in", // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in", "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
+   animationTime: 500, // AnimationTime let you define how long each section takes to animate
    pagination: true, // You can either show or hide the pagination. Toggle true for show, false for hide.
    updateURL: false, // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
    beforeMove: function(index) {}, // This option accepts a callback function. The function will be called before the page moves.
    afterMove: function(index) {}, // This option accepts a callback function. The function will be called after the page moves.
-   loop: true, // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
-   responsiveFallback: 600 // You can fallback to normal page scroll by defining the width of the browser in which you want the responsive fallback to be triggered. For example, set this to 600 and whenever the browser's width is less than 600, the fallback will kick in.
+   loop: false, // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
+   responsiveFallback: 960 // You can fallback to normal page scroll by defining the width of the browser in which you want the responsive fallback to be triggered. For example, set this to 600 and whenever the browser's width is less than 600, the fallback will kick in.
   });
   header();
   giphyTest("kittens", displayGifs);

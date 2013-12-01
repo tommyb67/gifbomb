@@ -11,6 +11,5 @@
  *= require_self
  *= require_tree .
  *= require onepage-scroll.css
- *= require lightbox.css
- *= require screen.css
+ *= require jquery.fancybox.css
  */

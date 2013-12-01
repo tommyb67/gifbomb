@@ -79,7 +79,7 @@ function logIn() {
 
 };
 function logOut(){
-  var logout = $("<button>").addClass("login").html("LOGOUT").appendTo($("div.sect_three"));
+  var logout = $("<button>").attr("id","admin").html("LOGOUT").appendTo($("div.sect_three"));
   logout.on("click", function(){
     $.ajax({
       url: "/session",
@@ -107,6 +107,7 @@ function appendAvatar(user){
       img.attr('id', 'avatar-img');
       var username = $("<span>").addClass("user_greeting").text("Welcome, " + user.username + " | " + user.email).prependTo($("div.sect_three"));
       $("div.sect_three").prepend(img);
+      var editButton = $("<button class='edit'>").text("Edit").prependTo($("div.sect_three"));
     },
     context: this
   });
@@ -121,16 +122,15 @@ function viewFavorites(userId){
     dataType: "json",
     success: function(user){
       for (var i= 0; i < user.length; i++ ) {
-        var divy = $("<div>").attr("id", user[i].id).addClass("givs");
-        var lightedLinks = $("<a>").attr("id", "gallery").attr("data-lightbox","givs").attr("href", user[i].url);
+        var wrap = $("<div>").addClass("wrap");
+        var gifWrap = $("<div class = 'adiv'>");
+        var lightedLinks = $("<a>").attr("rel", "gallery").attr("class","fancybox").attr("href", user[i].url).fancybox();
         var l = $("<img>").addClass("gifs").attr("src", user[i].url);
-        var toUnFave = $("<button>").addClass("unfavorite").text("DESTROY!").css("float","left");
-        l.appendTo(divy);
-        toUnFave.appendTo(divy);
-        lightedLinks.append($(divy));
-        lightedLinks.appendTo(favoritesDiv);
-
-
+        var toUnFave = $("<button>").addClass("unfavorite").text("DESTROY").css("float","left");
+        l.appendTo(lightedLinks);
+        toUnFave.prependTo(wrap);
+        gifWrap.append(lightedLinks).appendTo(wrap);
+        wrap.appendTo(favoritesDiv);
       };
       favoritesDiv.appendTo($("div.sect_three"));
     },
@@ -145,7 +145,7 @@ function adminButton(){
   var button = $("<input type='submit' value='Admin' />");
   button.attr('id','admin');
   adminForm.append(button);
-  adminForm.appendTo($("div.sect_three"));
+  adminForm.prependTo($("div.sect_three"));
 }
 
 
