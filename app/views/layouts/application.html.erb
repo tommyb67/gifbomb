@@ -13,10 +13,13 @@
 
 <%= yield %>
 <%if logged_in?%>
+    <script> var current_user = <%= session[:user_id]%> </script>
     <script>logOut();</script>
     <script>appendAvatar(<%=session[:user_id]%>);</script>
     <script>viewFavorites(<%=session[:user_id]%>);</script>
+    <%if logged_in? && User.find(session[:user_id]).admin? %>
     <script>adminButton();</script>
+    <%end%>
   <%else%>
   <script>newAndLogIn();</script>
   <%end%>

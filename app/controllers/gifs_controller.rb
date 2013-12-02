@@ -30,7 +30,8 @@ class GifsController < ApplicationController
   
   def unfavorite
     @gif = Gif.find(params[:id])
-    if current_user.unfavorite(@gif)
+    # binding.pry
+    if @user.unfavorite(@gif.url)
       render status: 200, nothing: true
     else
       render status: 400, nothing: true

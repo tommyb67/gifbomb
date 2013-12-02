@@ -5,7 +5,7 @@ body{
 div.header{
   background-color: white;
   width:90%;
-  height:180px;
+  max-height:20%;
   margin-left:20px;
   margin-top: 5px;
   padding:20px;
@@ -17,13 +17,7 @@ div.header{
 }
 .gifspan{
   color: indianred;
-  font-size:50px;
-}
-h1.def{
-  float:left;
-  font-family: 'Share Tech Mono', sans-serif;
-  font-size:100px;
-  color:black;
+  font-size:1.5em;
 }
 h3#error{
   color:black;
@@ -44,25 +38,25 @@ div#error-div{
 }
 span.heading{
   font-family: 'Share Tech Mono', sans-serif;
-  font-size: 30px;
+  font-size: 1.75em;
   color:black;
 
 }
 img.bomb{
   float:left;
   clear:right;
-  width:225px;
-  height: 175px;
+  width:15%;
+  max-height: 95%;
 }
 div.sect_one{
   width:90%;
-  height: 100%;
+  max-height: 95%;
   margin-top: 1%;
   margin-left:9%;
 }
 div.sect_two{
   width:90%;
-  height: 100%;
+  max-height: 95%;
   margin-top: 1%;
   margin-left: 9%;
 
@@ -70,9 +64,9 @@ div.sect_two{
 div.sect_three{
   width:90%;
   height: 88%;
-  margin-left:1%;
-  margin-right:1%;
-  margin-top: 1%;
+  margin-left:3.5%;
+  margin-right:3.5%;
+  margin-top: 2%;
   margin-bottom: 0;
   border:1px indianred solid;
   padding: 20px 20px 0 20px;
@@ -89,19 +83,24 @@ span.defined{
   color:black;
 }
 section{
+  min-width: 960px;
+  max-height: 100%; 
   padding-left: 5%;
   padding-right: 5%;
   margin: 0 auto;
 }
 .gifs{
+  max-width: 95%;
+  min-height: 84%;
+  max-height: 84%;
   clear:right;
   float:left;
   margin-top:5px;
-  margin-left: 15px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
   border-radius: 20%;
   border:1px solid white;
-  width:175px;
-  height:175px;
+  /*height:175px;*/
   box-shadow: 1px 1px 2px lightcoral;
 }
 .gifs:hover{
@@ -123,6 +122,7 @@ form.search{
   margin-left: 3%;
 }
 .newUserForm input{
+  font-size: 1.5em;
   margin-top: 5%;
   width:95%;
   height:35px;
@@ -130,17 +130,44 @@ form.search{
   text-align: center;
   font-family:'Share Tech Mono', sans-serif;
 }
+.newUserForm input:hover, input:focus{
+  -moz-box-shadow: 0 0 5px lavenderblush;
+  -webkit-box-shadow: 0 0 5px lavenderblush;
+  box-shadow: 0 0 5px lavenderblush;
+}
+.editUserForm input{
+  margin-top: 5%;
+  margin-left: 13%; 
+  width:75%;
+  height:35px;
+  border-radius: 20px;
+  text-align: center;
+  font-family:'Share Tech Mono', sans-serif;
+  font-size: 1.5em;
+}
+.editUserForm input:hover, input:focus{
+  -moz-box-shadow: 0 0 5px lavenderblush;
+  -webkit-box-shadow: 0 0 5px lavenderblush;
+  box-shadow: 0 0 5px lavenderblush;
+}
 .loginForm{
   margin-top: 30%;
   margin-left: 3%;
 }
 .loginForm input{
+  font-size: 1.5em;
   margin-top: 5%;
   width:95%;
   height: 35px;
   border-radius: 20px;
   text-align: center;
   font-family:'Share Tech Mono', sans-serif;
+}
+.loginForm input:hover, input:focus{
+  outline-width: 0;
+  -moz-box-shadow: 0 0 5px lavenderblush;
+  -webkit-box-shadow: 0 0 5px lavenderblush;
+  box-shadow: 0 0 5px lavenderblush;
 }
 .keyword{
   font-size:25px;
@@ -164,7 +191,32 @@ form.search{
 .keyword:focus{
   box-shadow: 0 0 2px darkgoldenrod;
 }
+.wrap{
+  max-width: 17%;
+  min-width: 17%;
+  float:left;
+  clear:right;
+  width:17%;
+  height:220px;
+  border-radius: 20px;
+  border:2px solid darkgoldenrod;
+  margin: 2px 2px 3px 2px;
+  background-color: rgba(0,0,0,.7);
+}
+.adiv{
+  z-index:2;
+  /*min-width: 15%;*/
+  max-width: 94%;
+  max-height: 95%;
+  /*min-height: 15%;*/
+  /*max-height: 15%;*/
+  /*width:175px;*/
+  
+  margin: 0 7% 0 7%;
+}
 .givs{
+  max-width: 16%;
+  min-width: 16%;
   clear:right;
   float:left;
   margin:5px;
@@ -173,23 +225,24 @@ form.search{
   border:2px solid darkgoldenrod;
   width:16%;
   height:215px;
-  background-color: rgba(0,0,0,.7);
+  
 }
 .favorite{
-  z-index:200000;
+  z-index:2;
   width:75%;
   margin-top: 5px;
-  margin-left: 30px;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
   margin-bottom: 0px;
   border-radius: 5px;
   background-color: rgba(255,255,255,.2);
   color: lavenderblush;
   font-family: 'Share Tech Mono', sans-serif;
   font-weight: bold;
-  font-size: 15px;
+  font-size: .75em;
 }
 .unfavorite{
-  z-index:200000;
+  z-index:2;
   width:75%;
   margin-top: 5px;
   margin-left: 30px;
@@ -199,7 +252,7 @@ form.search{
   color: lavenderblush;
   font-family: 'Share Tech Mono', sans-serif;
   font-weight: bold;
-  font-size: 15px;
+  font-size: .75em;
 }
 .clicked{
   background-color: rgba(255,0,0,.7);
@@ -213,24 +266,72 @@ form.search{
   display: block;
 }
 
-button.login {
+button.login{
   font-weight: bold;
   display: inline;
   padding:8px;
-  margin: 5px;
+  margin-top: 5px;
+  width: 40%;
+  margin-left: 29%;
+  border-radius: 20px;
+  -moz-box-shadow: 0px 0px 2px indianred;
+  -webkit-box-shadow: 0px 0px 2px indianred;
+  box-shadow: 0px 0px 2px indianred;
+  text-align: center;
+}
+button.edit{
+  font-weight: bold;
+  display: inline;
+  padding:6px;
+  margin-top: 5px;
+  width:3%;
   border-radius: 5px;
   -moz-box-shadow: 0px 0px 2px indianred;
   -webkit-box-shadow: 0px 0px 2px indianred;
   box-shadow: 0px 0px 2px indianred;
   text-align: center;
 }
+button.login-top{
+  font-weight: bold;
+  display: inline;
+  padding:.45%;
+  width: 6%;
+  margin-right: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0px 0px 2px indianred;
+  -webkit-box-shadow: 0px 0px 2px indianred;
+  box-shadow: 0px 0px 2px indianred;
+  text-align: center;
+}
+.editUserForm{
+  border-radius: 20%;
+  margin: 8% 10%;
+  width: 80%;
+  height:85%;
+  background-color: rgba(0,0,0,.7);
+  -moz-box-shadow: 0 0 2px goldenrod;
+  -webkit-box-shadow: 0 0 2px goldenrod;
+  box-shadow: 0 0 2px goldenrod;
+}
+
+.editUserDiv{
+  border-radius: 20%;
+  float:left;
+  margin: 5% 35%;
+  width: 29.5%;
+  height:57%;
+  background-color: rgba(0,0,0,.7);
+  -moz-box-shadow: 0 0 2px goldenrod;
+  -webkit-box-shadow: 0 0 2px goldenrod;
+  box-shadow: 0 0 2px goldenrod;
+}
 
 .newFormDiv{
   border-radius: 20%;
   float:left;
   margin: 10% 13%;
-  width: 400px;
-  height:400px;
+  width: 29.5%;
+  height:57%;
   background-color: rgba(0,0,0,.7);
   -moz-box-shadow: 0 0 2px goldenrod;
   -webkit-box-shadow: 0 0 2px goldenrod;
@@ -241,24 +342,29 @@ button.login {
   border-radius: 20%;
   float:left;
   margin-top: 10%;
-  width: 400px;
-  height:400px;
+  width: 29.5%;
+  height:57%;
   background-color: rgba(0,0,0,.7);
   -moz-box-shadow: 0 0 2px goldenrod;
   -webkit-box-shadow: 0 0 2px goldenrod;
   box-shadow: 0 0 2px goldenrod;
 }
 .favoritesDiv{
-  width:100%;
-  height: 70%;
+  border: 2px solid goldenrod;
+  border-radius: 10px;
+  width:88%;
+  height: 55%;
   overflow: scroll;
+  padding: 2% 1% 0 1%;
+  margin:0 5%;
+  background-color: rgba(0,0,0,.6);
 }
 ::-webkit-scrollbar {
-    -webkit-appearance: none;
+    -webkit-appearance: solid;
     width: 7px;
 }
 ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
+    border-radius: 10px;
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
@@ -270,8 +376,8 @@ div.sect_four{
   margin:0 auto;
 }
 
-input#admin{
-  display: block;
+#admin{
+  float: left;
   padding:7px;
   margin: 5px;
   border-radius: 5px;
@@ -285,6 +391,19 @@ input#admin{
 .user_greeting{
   color: indianred;
   font-size: 30px;
+  font-family: 'Share Tech Mono', sans-serif;
   display: inline-block;
 }
-
+a.fancybox{
+  text-align: center;
+}
+div.editHeader{
+  margin-top:5%; 
+  margin-bottom: 0%;
+  margin-left: 36%;
+}
+span.editHeader{
+  font-family: 'Share Tech Mono', sans-serif;
+  font-size: 4em;
+  color:black;
+}

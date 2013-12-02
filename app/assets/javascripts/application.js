@@ -17,4 +17,5 @@
 //= require_tree .
 //= require onepage-scroll.js
 //= require underscore.js 
-//= require lightbox-2.6.min.js
+//= require jquery.fancybox.js
+//= require jquery.fancybox.pack.js
